@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "A Five Sentence Term Paper Using Chi2 Analysis",
+    "section": "",
+    "text": "Introduction\nRQ: Does the color of the book predict the book’s genre?\nMany people judge books by their covers, but can a book’s cover color actually provide clues about its genre?\nBook covers may convey information about a book’s content, raising the question of whether cover color is associated with genre.\n\n\nLiterature Review\nOthers have previously studied how machine learning algorithims may predict information including a book’s genre.\n\n\nMethod\n\nimport pandas as pd\n\nimport numpy as np\nimport seaborn as sns\nfrom scipy.stats import chi2_contingency\n\ndomain = 'https://raw.githubusercontent.com/'\npath = 'adamrossnelson/confident/main/data/'\nfile = 'confident_fictional_books.csv'\n\nbooks = pd.read_csv(domain + path + file)\n\nOur null hypothesis is that book cover color does not predict the book’s genre while the alternate hypothesis is that book cover color does predict the book’s genere and we start this question with data from 359 books where we know the book’s genre and the book’s cover color such that we can conduct a chi2 test to see if these two variables are either independent or dependent (as it turns out our chi2 test will involve a 6 x 6 test.\n\n\nResults\n\n# Conduct the chi2 with chi2_contingency by passing the observed\nx2, pval, degf, _ = chi2_contingency(\n    pd.crosstab(\n    books['book_genre'],\n    books['book_color']))\n\nResults: Chi 2 Stat: 1.99210 - Pvalue: 1.00000- Degrees of Freedom: 25\nWhith a Chi2 statistic of 1.99210 and a p-value nearly equaly to 1.00000 (degrees of freedom 25), we fail to reject our null hypothesis and conclude that given these data, and given this analytical approach there is no evidence to believe that a book’s cover color may predict that book’s genre.\n\n\nDiscussion\nThe DSHB students thought they would be able to predict book genre based on the book color, however they were unable to find evidnce that it does; the search for a reproducible method that will predict book genre carries on\n\n\nReference"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
